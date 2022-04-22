@@ -20,6 +20,9 @@ upload_file_endpoint = APIRouter(tags=tags_metadata)
 async def post_upload(
     request: Request, file: UploadFile, file_type: str, file_code: str = None
 ):
+    if len(file_code) > 10:
+        file_code = None
+        
     if file_type.lower() not in ["png", "txt", "jpeg", "gif", "mp4", "mp3"]:
         return {
             "error": "Must include file type, Options: png, txt, jpeg, gif, mp4, mp3]"
@@ -32,5 +35,5 @@ async def post_upload(
     code = await utils.insert_file(bytes(file), file_type, file_code)
     return {
         "code": code,
-        "url": f"https://file-host.herokuapp.com/api/file?code={code}",
+        "url": f"https://whyapi.fusionsid.xyz/api/file?code={code}",
     }
