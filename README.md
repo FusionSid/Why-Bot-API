@@ -13,3 +13,8 @@ It supports many differnt file types, and i plan to add more.
 
 Also i will add a ui for the file hosting thing which lets you have logins and stuff. (probbaly login with discord cause im too lazy)
 
+Link: https://whyapi.fusionsid.xyz/docs
+
+checkout https://github.com/FusionSid/Filehost for an example
+
+I will make a better readme later 
