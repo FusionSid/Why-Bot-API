@@ -83,5 +83,4 @@ async def startup():
     loop.create_task(loop_cleanup())
 
 if __name__ == "__main__":
-    uvicorn.run(app, reload=False, host="0.0.0.0", port=443)
     uvicorn.run(app, reload=False, host="0.0.0.0", port=443, ssl_keyfile="./key.pem", ssl_certfile="./cert.pem")
