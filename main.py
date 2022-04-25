@@ -54,7 +54,7 @@ async def loop_cleanup():
     delete_interval = 86_400 # seconds
 
     # Checks every 6 hours
-    check_every = 21_600 # seconds 
+    check_every = 21_600 # seconds
 
     while True:
         time_right_now = int(time.time())
@@ -82,4 +82,4 @@ async def startup():
     loop.create_task(loop_cleanup())
 
 if __name__ == "__main__":
-    uvicorn.run(app, reload=False, host="0.0.0.0")
+    uvicorn.run(app, reload=False, host="0.0.0.0", port=443, ssl_keyfile="./key.pem", ssl_certfile="./cert.pem")

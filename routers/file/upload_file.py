@@ -29,7 +29,7 @@ async def post_upload(
         }
 
     file = await file.read()
-    if len(file) > 15000000:
+    if len(file) > 50000000:
         return {"error": "File to large, Max size 15mb"}
 
     code = await utils.insert_file(bytes(file), file_type, file_code)
