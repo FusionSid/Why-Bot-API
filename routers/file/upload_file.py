@@ -16,7 +16,7 @@ upload_file_endpoint = APIRouter(tags=tags_metadata)
 
 
 @upload_file_endpoint.post("/api/upload")
-@limiter.limit("42/minute")
+@limiter.limit("15/minute")
 async def post_upload(
     request: Request, file: UploadFile, file_type: str, file_code: str = None
 ):
@@ -30,7 +30,7 @@ async def post_upload(
 
     file = await file.read()
     if len(file) > 50000000:
-        return {"error": "File to large, Max size 15mb"}
+        return {"error": "File to large, Max size 50mb"}
 
     code = await utils.insert_file(bytes(file), file_type, file_code)
     return {
