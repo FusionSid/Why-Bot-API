@@ -26,7 +26,7 @@ This api is mainly for me to use for the why bot dashboard
 This also contains the file host api
 You can upload files and use a code to get them later
 
-Supported file types: png, txt, jpeg, gif, mp4, mp3
+Supported file types: png, txt, jpeg, jpg, gif, mp4, mp3, json, bmp, html, css, csv, plain, ttf, sh, pdf, otf, svg, zip
 
 Contact: Discord: FusionSid#3645
 """
