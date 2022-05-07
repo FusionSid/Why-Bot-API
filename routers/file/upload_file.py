@@ -20,12 +20,20 @@ upload_file_endpoint = APIRouter(tags=tags_metadata)
 async def post_upload(
     request: Request, file: UploadFile, file_type: str, file_code: str = None
 ):
+    """
+    Lets you upload a file
+    Max size 50mb
+
+    Supported file types: png, txt, jpeg, jpg, gif, mp4, mp3, json, bmp, html, css, csv, plain, ttf, sh, pdf, otf, svg, zip
+    """
     if file_code is not None and len(file_code) > 10:
         file_code = None
-        
-    if file_type.lower() not in ["png", "txt", "jpeg", "gif", "mp4", "mp3"]:
+    
+    ftypes = ["png", "txt", "jpeg", "jpg", "gif", "mp4", "mp3", "json", "bmp", "html", "css", "csv", "plain", "ttf", "sh", "pdf", "otf", "svg", "zip"]
+    if file_type.lower() not in ftypes:
         return {
-            "error": "Must include file type, Options: png, txt, jpeg, gif, mp4, mp3]"
+            "error": "Must include valid file type",
+            "options": ", ".join(ftypes)
         }
 
     file = await file.read()

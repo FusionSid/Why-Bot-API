@@ -31,18 +31,30 @@ async def getfile(request: Request, code: str):
 
     file_type = db_data[3].lower()
 
-    if file_type == "png":
-        return StreamingResponse(file, media_type="image/png")
-    if file_type == "jpeg":
-        return StreamingResponse(file, media_type="image/jpg")
-    if file_type == "txt":
-        return StreamingResponse(file, media_type="image/plain")
-    if file_type == "mp4":
-        return StreamingResponse(file, media_type="video/mp4")
-    if file_type == "gif":
-        return StreamingResponse(file, media_type="image/gif")
-    if file_type == "mp3":
-        return StreamingResponse(file, media_type="audio/mpeg")
+    mtypes = {
+        "png": "image/png",
+        "txt": "text/plain",
+        "jpeg": "image/jpeg",
+        "jpg": "image/jpg",
+        "gif": "image/gif",
+        "mp4": "video/mp4",
+        "mp3": "audio/mpeg",
+        "json": "application/json",
+        "bmp": "image/bmp",
+        "html": "text/html",
+        "css": "text/css",
+        "csv": "text/csv",
+        "plain": "text/plain",
+        "ttf": "font/ttf",
+        "sh": "application/x-sh",
+        "pdf": "application.pdf",
+        "otf": "font/otf",
+        "svg": "image/svg+xml",
+        "zip": "application/zip"
+    }
+
+    if file_type in mtypes:
+        return StreamingResponse(file, media_type=mtypes[file_type])
 
     else:
         return {"error": "Incorrect file type"}
