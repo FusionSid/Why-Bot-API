@@ -23,19 +23,19 @@ description = """
 This is a multipurpose api for Why-Bot, Ricklang and File Host
 
 ## Why Bot
-When i make a dashboard for why bot i will use this api to use the why bot database
+When i make a dashboard for why bot i will use this api to use the why bot database  
 
 ## Rickroll Lang
-You can run rickroll-lang code using this api too.
-It runs the code in a docker container.
+You can run rickroll-lang code using this api too.  
+It runs the code in a docker container.  
 
 ## File Host
-This api will host the file for 24 hours
-You can upload files and use a code to get them later, if code is not provides it will be random
-Supported file types: png, txt, jpeg, jpg, gif, mp4, mp3, json, bmp, csv, plain, ttf, pdf, otf, svg, zip
-If the file type doesnt exit but the file is something like .py just upload as plain and add the .py extenstion after downloading
+This api will host the file for 24 hours  
+You can upload files and use a code to get them later, if code is not provides it will be random  
+**Supported file types: png, txt, jpeg, jpg, gif, mp4, mp3, json, bmp, csv, plain, ttf, pdf, otf, svg, zip**  
+If the file type doesnt exit but the file is something like .py just upload as plain and add the .py extenstion after downloading  
 
-Contact: Discord: FusionSid#3645
+### Contact: Discord: FusionSid#3645 or Email: whybot@fusionsid.xyz
 """
 
 app = FastAPI(
