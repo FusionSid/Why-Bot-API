@@ -8,7 +8,7 @@ limiter = Limiter(key_func=get_remote_address)
 
 tags_metadata = [
     {
-        "name": "Upload file",
+        "name": "Upload a file",
     }
 ]
 

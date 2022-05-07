@@ -11,7 +11,7 @@ limiter = Limiter(key_func=get_remote_address)
 
 tags_metadata = [
     {
-        "name": "Get file from db",
+        "name": "Get a file",
     }
 ]
 
