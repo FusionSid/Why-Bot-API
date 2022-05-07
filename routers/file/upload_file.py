@@ -24,12 +24,12 @@ async def post_upload(
     Lets you upload a file
     Max size 50mb
 
-    Supported file types: png, txt, jpeg, jpg, gif, mp4, mp3, json, bmp, html, css, csv, plain, ttf, sh, pdf, otf, svg, zip
+    Supported file types: png, txt, jpeg, jpg, gif, mp4, mp3, json, bmp, csv, plain, ttf, pdf, otf, svg, zip
     """
     if file_code is not None and len(file_code) > 10:
         file_code = None
     
-    ftypes = ["png", "txt", "jpeg", "jpg", "gif", "mp4", "mp3", "json", "bmp", "html", "css", "csv", "plain", "ttf", "sh", "pdf", "otf", "svg", "zip"]
+    ftypes = ["png", "txt", "jpeg", "jpg", "gif", "mp4", "mp3", "json", "bmp", "csv", "plain", "ttf", "pdf", "otf", "svg", "zip"]
     if file_type.lower() not in ftypes:
         return {
             "error": "Must include valid file type",
