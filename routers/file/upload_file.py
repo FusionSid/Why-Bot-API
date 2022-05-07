@@ -20,7 +20,7 @@ upload_file_endpoint = APIRouter(tags=tags_metadata)
 async def post_upload(
     request: Request, file: UploadFile, file_type: str, file_code: str = None
 ):
-    if len(file_code) > 10:
+    if file_code is not None and len(file_code) > 10:
         file_code = None
         
     if file_type.lower() not in ["png", "txt", "jpeg", "gif", "mp4", "mp3"]:
