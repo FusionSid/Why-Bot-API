@@ -44,7 +44,7 @@ async def getfile(request: Request, code: str):
         "csv": "text/csv",
         "plain": "text/plain",
         "ttf": "font/ttf",
-        "pdf": "application.pdf",
+        "pdf": "application/pdf",
         "otf": "font/otf",
         "svg": "image/svg+xml",
         "zip": "application/zip"
