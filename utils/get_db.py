@@ -16,6 +16,15 @@ async def get_file(code):
     except IndexError:
         return False
 
+async def get_redirect(code):
+    async with aiosqlite.connect(DB_PATH) as db:
+        cur = await db.execute("SELECT * FROM Redirect WHERE file_code=?", (code, ))
+        data = await cur.fetchall()
+    try:
+        return data[0]
+    except IndexError:
+        return False
+
 
 async def get_full_db():
     async with aiosqlite.connect(DB_PATH) as db:

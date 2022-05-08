@@ -5,3 +5,5 @@ from .file.upload_file import upload_file_endpoint
 from .file.stats import file_stats_endpoint
 
 from .ricklang import rickroll_lang
+
+from .redirect.redirect import redirect

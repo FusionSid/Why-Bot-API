@@ -55,3 +55,45 @@ async def insert_file(file_data: bytes, file_type: str, custom_code: str = None)
 
         await db.commit()
     return code
+
+
+async def generate_code_red(custom_code: str = None):
+    if custom_code is not None:
+        does_code_exist = await check_code_exists_red(custom_code)
+        if does_code_exist:
+            return custom_code
+
+    choices = string.ascii_lowercase + string.ascii_uppercase + string.digits
+    while True:
+        code = "".join(random.sample(choices, 8))
+        does_code_exist = await check_code_exists_red(code)
+        if does_code_exist:
+            break
+
+    return code
+
+
+async def check_code_exists_red(code: str):
+    async with aiosqlite.connect(DB_PATH) as db:
+        cur = await db.execute(f"SELECT * FROM Redirect WHERE file_code=?", (code,))
+        data = await cur.fetchall()
+
+    if len(data) == 0:
+        return True
+
+    return False
+
+
+async def insert_file_red(url: str, custom_code: str = None):
+    code = await generate_code_red(custom_code=custom_code)
+    print(url)
+    async with aiosqlite.connect(DB_PATH) as db:
+        await db.execute(
+            "INSERT INTO Redirect (file_code, url) VALUES (?, ?)",
+            (
+                code,
+                url,
+            ),
+        )
+        await db.commit()
+    return code

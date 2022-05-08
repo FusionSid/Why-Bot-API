@@ -21,6 +21,9 @@ get_file_endpoint = APIRouter(tags=tags_metadata)
 @get_file_endpoint.get("/api/file")
 @limiter.limit("42/minute")
 async def getfile(request: Request, code: str):
+    """
+    Get a file with the code
+    """
     db_data = await utils.get_file(code)
 
     if db_data == False or len(db_data) == 0:

@@ -14,6 +14,9 @@ file_stats_endpoint = APIRouter()
 
 @file_stats_endpoint.get("/api/stats")
 async def stats():
+    """
+    Stats on file uploaded
+    """
     db_size = path.getsize(DB_PATH)
     return {
         "files_uploaded": len((await get_full_db())),

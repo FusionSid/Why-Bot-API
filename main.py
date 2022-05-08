@@ -20,7 +20,7 @@ load_dotenv()
 DB_PATH = os.environ["FILE_DB"]
 
 description = """
-This is a multipurpose api for Why-Bot, Ricklang and File Host
+This is a multipurpose api for Why-Bot, Ricklang, Redirect and File Host
 
 ## Why Bot
 When i make a dashboard for why bot i will use this api to use the why bot database  
@@ -34,6 +34,10 @@ This api will host the file for 24 hours
 You can upload files and use a code to get them later, if code is not provides it will be random  
 **Supported file types: png, txt, jpeg, jpg, gif, mp4, mp3, json, bmp, csv, plain, ttf, pdf, otf, svg, zip**  
 If the file type doesnt exit but the file is something like .py just upload as plain and add the .py extenstion after downloading  
+
+
+## Redirect
+You can redirect to urls with this api now :)
 
 ### Contact: Discord: FusionSid#3645 or Email: whybot@fusionsid.xyz
 """
@@ -81,6 +85,7 @@ app.include_router(routers.why_bot_endpoint)
 app.include_router(routers.get_file_endpoint)
 app.include_router(routers.upload_file_endpoint)
 app.include_router(routers.file_stats_endpoint)
+app.include_router(routers.redirect)
 app.include_router(routers.rickroll_lang)
 
 
